@@ -1,4 +1,4 @@
-file = File.open('input_1a.txt').read
+file = File.open('input_1.txt').read
 lines = file.split("\n")
 
 def integer?(string_number)
