@@ -4,3 +4,4 @@
 # My times: 
 
 - Exercise 1: 2h 15m
+- Exercise 2: 50m
