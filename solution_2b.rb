@@ -1,10 +1,6 @@
 file = File.open('input_2.txt').read
 lines = file.split("\n")
 
-RED_COUNT = 12
-GREEN_COUNT = 13
-BLUE_COUNT = 14
-
 class Game
   def initialize(id:)
     @id = id
