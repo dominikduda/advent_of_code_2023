@@ -69,7 +69,6 @@ def adjacent_coords(x, y)
   ]
 end
 
-
 def part_number?(part_coords, x, y)
   part_coords.each do |digits_coords|
     return true if digits_coords.any? { |part_x, part_y| part_x == x && part_y == y }
@@ -84,7 +83,7 @@ def get_all_part_coords(part_coords, x, y)
   nil
 end
 
-def to_integer(part_coords, digits_coords)
+def to_integer(_part_coords, digits_coords)
   number = ''
   digits_coords.each do |x, y|
     number << MATRIX[x][y]
@@ -101,9 +100,7 @@ MATRIX.each_with_index do |row, row_index|
 
     adjacent_part_coords = []
     adjacent_coords(row_index, char_index).each do |x, y|
-      if part_number?(part_coords, x, y)
-        adjacent_part_coords << get_all_part_coords(part_coords, x, y)
-      end
+      adjacent_part_coords << get_all_part_coords(part_coords, x, y) if part_number?(part_coords, x, y)
     end
     part_digits_coords_making_a_gear << adjacent_part_coords.uniq unless adjacent_part_coords.empty?
   end
@@ -116,6 +113,7 @@ part_digits_coords_making_a_gear.each do |gear_parts_coords|
     numbers << to_integer(part_coords, gear_part_coords_sets)
   end
   next if numbers.length != 2
+
   sum += numbers.reduce(&:*)
 end
 
