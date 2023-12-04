@@ -42,9 +42,8 @@ def calculate_sum(matrix)
 
       next unless !number_beginning.nil? && !number_end.nil? && (!integer?(char) || char_index == row.length - 1)
 
-      if adjacent_chars(matrix, row_index, number_beginning, number_end).any? do |char|
-           char != '.' && !integer?(char)
-         end
+      if adjacent_chars(matrix, row_index, number_beginning, number_end)
+         .any? { |char| char != '.' && !integer?(char) }
         number = ''
         (number_beginning..number_end).each do |digit_index|
           number << matrix[row_index][digit_index]
